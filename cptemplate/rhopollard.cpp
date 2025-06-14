@@ -13,7 +13,8 @@ struct factorization {
     }
 
     int mult(int a, int b, int mod) {
-        return ((__int128)a * b) % mod;
+        return a * b % mod;
+        //return ((__int128)a * b) % mod;
     }
 
     int bitPow(int num, int pow, int mod) {

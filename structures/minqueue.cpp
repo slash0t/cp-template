@@ -7,33 +7,46 @@ struct opqueue {
 	function<int(int, int)> f;
 	int init;
 
-	opqueue(function<int(int, int)> f_, int init_): in(), out(), f(f_), init(init_) {}
+	opqueue(function<int(int, int)> f_, int init_) : in(), out(), f(f_), init(init_) {}
+
+	static opqueue minqueue() {
+		return opqueue([](int a, int b) {return min(a, b); }, 1ll << 62);
+	}
+
+	static opqueue maxqueue() {
+		return opqueue([](int a, int b) {return max(a, b); }, -(1ll << 62));
+	}
+
+	int size() {
+		return in.size() + out.size();
+	}
 
 	int get() {
-		int minn = init;
+		int value = init;
 		if (out.size()) {
-			minn = f(minn, out.top().second);
+			value = f(value, out.top().second);
 		}
 		if (in.size()) {
-			minn = f(minn, in.top().second);
+			value = f(value, in.top().second);
 		}
+		return value;
 	}
 
 	void push_back(int num) {
-		int minn = num;
+		int value = num;
 		if (in.size()) {
-			minn = f(minn, in.top().second);
+			value = f(value, in.top().second);
 		}
-		in.emplace(num, minn);
+		in.push({ num, value });
 	}
 
 	int pop_front() {
-		if (out.size()) {
+		if (out.size() == 0) {
 			while (in.size()) {
 				int num = in.top().first; in.pop();
-				int minn = num;
-				if (out.size()) minn = f(num, out.top().second);
-				out.push({num, minn});
+				int value = num;
+				if (out.size()) value = f(num, out.top().second);
+				out.push({ num, value });
 			}
 		}
 		int res = out.top().first;
@@ -41,5 +54,3 @@ struct opqueue {
 		return res;
 	}
 };
-#define minqueue(name) opqueue name([](int a, int b) {return min(a, b);}, 1e18);
-#define maxqueue(name) opqueue name([](int a, int b) {return max(a, b);}, -1e18);

@@ -23,7 +23,7 @@ using namespace std;
 #define nfor(i, n) for (int i = n; i >= 0; i--)
 #define foreach(i, st) for (auto & i : st)
 
-const int inf = 69696969;
+const int inf = 2e18;
 const int N = 2e7;
 const int M = 998244353;
 
@@ -34,7 +34,7 @@ void solve() {
 signed main()
 {
 	//freopen("magic.in", "r", stdin);
-	//freopen("magic.out", "w", stdout);asdasd
+	//freopen("magic.out", "w", stdout);
 #ifdef SLASHOT
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);

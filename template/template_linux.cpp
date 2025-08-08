@@ -23,12 +23,25 @@ using namespace std;
 #define nfor(i, n) for (int i = n; i >= 0; i--)
 #define foreach(i, st) for (auto & i : st)
 
+ostream& operator<<(ostream& os, const pair<int, int>& p) {
+    os << p.first << " " << p.second << nl;
+    return os;
+}
+
+ostream& operator<<(ostream& os, const vector<int>& a) {
+    for (int i = 0; i < (int) a.size(); i++) {
+		os << a[i];
+		if (i != a.size() - 1) os << " ";
+	}
+    return os;
+}
+
 const int inf = 2e18;
 const int N = 2e7;
 const int M = 998244353;
 
 void solve() {
-    
+	
 }
 
 signed main()

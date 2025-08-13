@@ -9,19 +9,14 @@ using namespace std;
 #define ld long double
 #define nl "\n"
 #define pb push_back
-#define xx first
-#define yy second
-#define cinn(a) for (int i = 0; i < (int) a.size(); i++) cin >> a[i];
-#define coutt(a) for (int i = 0; i < (int) a.size(); i++) cout << a[i] << (i == a.size() - 1 ? nl : " ");
 #define sortt(a) sort(a.begin(), a.end());
 #define rev(a) reverse(a.begin(), a.end());
 #define hi(a) (--a.end())
 #define lo(a) a.begin()
 #define ll(a) int a; cin >> a;
-#define vi(a, n) vector<int> a(n); cinn(a);
+#define vi(a, n) vector<int> a(n); cin >> a;
 #define forn(i, n) for (int i = 0; i < n; i++)
 #define nfor(i, n) for (int i = n; i >= 0; i--)
-#define foreach(i, st) for (auto & i : st)
 
 template<class T, class G>
 ostream& operator<<(ostream& os, const pair<T, G>& p) {
@@ -57,10 +52,7 @@ const int N = 2e7;
 const int M = 998244353;
 
 void solve() {
-	ll(n);
-	vector<pair<int, string>>a(n);
-	cin >> a;
-	cout << a;
+
 }
 
 signed main()

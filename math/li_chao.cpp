@@ -5,7 +5,7 @@ using namespace std;
 const int inf = 1e9;
 
 struct line {
-	int k = 0, m = inf;
+	int k = inf, m = inf;
 	line() {}
 	line(int k, int m) : k(k), m(m) {}
 	int get(int x) {
@@ -24,7 +24,7 @@ struct li_chao_tree {
 	int n;
 	node* root = nullptr;
 
-	li_chao_tree(int _n = 1) : n(_n) {
+	li_chao_tree(int _n) : n(_n) {
 		root = new node();
 	}
 
@@ -57,12 +57,12 @@ struct li_chao_tree {
 	}
 
 	node* upd(line l) {
-		return upd(root, 0, n, l);
+		return upd(root, 0, n - 1, l);
 	}
 
 	int get(node* n, int tl, int tr, int x) {
 		if (!n || tl > tr) {
-			return inf;
+			return inf * inf;
 		}
 		int tm = (tl + tr) / 2;
 		if (x == tm) {
@@ -77,6 +77,6 @@ struct li_chao_tree {
 	}
 
 	int get(int x) {
-		return get(root, 0, n, x);
+		return get(root, 0, n - 1, x);
 	}
 };
